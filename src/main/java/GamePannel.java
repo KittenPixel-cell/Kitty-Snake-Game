@@ -8,6 +8,8 @@ import java.util.Random;
 
 public class GamePannel extends JPanel implements ActionListener  {
 
+    public GameFrame gameFrame;
+
     static final int SCREEN_WIDTH = 600;
     static final int SCREEN_HEIGHT = 600;
     static final int UNIT_SIZE = 25;
@@ -27,7 +29,7 @@ public class GamePannel extends JPanel implements ActionListener  {
     JButton Play = new JButton("Play");
     JButton Exit2 = new JButton("Exit");
     JButton Point = new JButton("+1 Point");
-    JButton MainmenuButton = new JButton("Main Menu, BROKEN W.I.P");
+    JButton MainmenuButton = new JButton("Main Menu, W.I.P");
 
     GamePannel(){
         random = new Random();
@@ -83,7 +85,7 @@ public class GamePannel extends JPanel implements ActionListener  {
             g.setFont(new Font("Arial", Font.BOLD, 75));
             g.setColor(Color.GREEN);
             FontMetrics metrics = getFontMetrics(g.getFont());
-            g.drawString("Kitty Snake", (SCREEN_WIDTH - metrics.stringWidth("Kitty Snake")) / 2, g.getFont().getSize());
+            g.drawString("Kitty Snake v2", (SCREEN_WIDTH - metrics.stringWidth("Kitty Snake v2")) / 2, g.getFont().getSize());
             Play.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     mainmenu = false;
@@ -166,6 +168,11 @@ public class GamePannel extends JPanel implements ActionListener  {
             timer.stop();
         }
     }
+    public void restgame()
+    {
+        new GameFrame();
+    }
+
     public void gameOver(Graphics g){
         //Game Over Text
         g.setColor(Color.RED);
@@ -179,7 +186,7 @@ public class GamePannel extends JPanel implements ActionListener  {
         g.drawString("Score: " + applesEaten, (SCREEN_WIDTH - metrics1.stringWidth("Score: " + applesEaten))/2, g.getFont().getSize());
         MainmenuButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+                new GameFrame().reset();
             }
         });
         Exit2.addActionListener(new ActionListener() {
