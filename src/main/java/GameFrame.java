@@ -10,7 +10,7 @@ public class GameFrame  extends JFrame {
 
         game = new GamePannel();
         this.add(game);
-        this.setTitle("Kitty Snake V1.0");
+        this.setTitle("Kitty Snake V2.0");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.pack();
